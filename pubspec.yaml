@@ -11,7 +11,7 @@ dependencies:
     sdk: flutter
   http: ^0.13.5
   shared_preferences: ^2.0.18
-  jwt_decoder: ^2.0.1
+  snippet_coder_utils: ^1.0.15
 
 dev_dependencies:
   flutter_test:
