@@ -95,6 +95,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   bottomLeft: Radius.circular(100),
                   bottomRight: Radius.circular(100),
                 )),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Align(
+                  alignment: Alignment.center,
+                  child: Image.asset("assets/images/ecommerce.png"),
+                )
+              ],
+            ),
           )
         ],
       ),
