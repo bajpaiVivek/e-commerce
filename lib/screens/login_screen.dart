@@ -1,4 +1,4 @@
-import 'package:flutter/gestures.dart';
+//import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:snippet_coder_utils/hex_color.dart';
@@ -101,18 +101,17 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Align(
-                  alignment: Alignment.center,
-                  child: Image.asset(
-                    "images/ecommerce.png",
-                    width: 250,
-                    fit: BoxFit.contain,
-                  ),
-                )
+                    alignment: Alignment.center,
+                    child: const Text(
+                      "Ecommerce",
+                      style:
+                          TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+                    ))
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20, bottom: 30, top: 50),
+          const Padding(
+            padding: EdgeInsets.only(left: 20, bottom: 30, top: 50),
             child: Text(
               'Login',
               style: TextStyle(
@@ -176,36 +175,41 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Padding(
               padding: const EdgeInsets.only(right: 25, top: 10),
               child: RichText(
-                text: TextSpan(
-                    style: const TextStyle(
-                      color: Colors.grey,
-                      fontSize: 14.0,
+                text: const TextSpan(
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 14.0,
+                  ),
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: 'Forget Password ?',
+                      style: TextStyle(
+                          color: Colors.white,
+                          decoration: TextDecoration.underline),
+                      // recognizer: TapGestureRecognizer
+                      //   .onPressed = () {
+                      //     print('Forget password');
+                      //   }
                     ),
-                    children: <TextSpan>[
-                      TextSpan(
-                          text: 'Forget Password ?',
-                          style: TextStyle(
-                              color: Colors.white,
-                              decoration: TextDecoration.underline),
-                          recognizer: TapGestureRecognizer
-                            ..onTap = () {
-                              print('Forget password');
-                            }),
-                    ]),
+                  ],
+                ),
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Center(
-            child: FormHelper.submitButton(
-              "Login",
-              () {},
-              btnColor: HexColor("#283B71"),
-              borderColor: Colors.white,
-              txtColor: Colors.white,
-            ),
+            child: ElevatedButton(
+                key: UniqueKey(),
+                onPressed: isLoading ? null : login,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: HexColor("#283B71"),
+                  side: const BorderSide(color: Colors.white, width: 1),
+                ),
+                child: isLoading
+                    ? const CircularProgressIndicator()
+                    : const Text('Login')),
           ),
         ],
       ),
