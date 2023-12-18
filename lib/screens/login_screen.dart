@@ -30,12 +30,11 @@ class _LoginScreenState extends State<LoginScreen> {
       isLoading = true;
     });
 
-    username = username!;
-    password = password!;
+    username = username.toString();
+    password = password.toString();
 
     final Map<String, dynamic> result =
         await authService.login(username!, password!);
-
     setState(() {
       isLoading = true;
     });
@@ -44,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
       print('Login error: ${result['error']}');
     } else {
       print('Login successful');
-      print('User Profile: ${result['username']}, ${result['email']}');
+      print('User Profile: ${result['username']}, ${result['roles']}');
 
       if (context.mounted) {
         return Navigator.pushReplacement(

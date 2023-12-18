@@ -1,7 +1,26 @@
 import 'package:flutter/material.dart';
+import '../screens/bottomnav_screens/category_screen.dart';
+import '../screens/bottomnav_screens/product_screen.dart';
+import '../screens/bottomnav_screens/location_screen.dart';
+import '../screens/bottomnav_screens/store_screen.dart';
+import '../screens/bottomnav_screens/warehouse_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _currentIndex = 0;
+  final List<Widget> _pages = [
+    CategoryScreen(),
+    ProductScreen(),
+    LocationScreen(),
+    StoreScreen(),
+    WarehouseScreen(),
+  ];
 
   void _openUserProfile(BuildContext context) {
     Navigator.pop(context);
@@ -41,19 +60,36 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text('Username: {user.username}'),
-          SizedBox(
-            height: 20,
+      body: _pages[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.category),
+            label: 'Categories',
           ),
-          Text('Email: {user.email}'),
-          SizedBox(
-            height: 20,
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: 'Products',
           ),
-          Text('Role: {user.role}'),
-        ]),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.location_on),
+            label: 'Locations',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.store),
+            label: 'Stores',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.storage),
+            label: 'Warehouses',
+          ),
+        ],
       ),
     );
   }
