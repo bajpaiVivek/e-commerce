@@ -22,8 +22,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   final AuthService authService =
       AuthService(baseUrl: 'https://products-9q0g.onrender.com');
-  final TextEditingController usernameController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
 
   bool isLoading = false;
 
@@ -32,11 +30,11 @@ class _LoginScreenState extends State<LoginScreen> {
       isLoading = true;
     });
 
-    final String username = usernameController.text;
-    final String password = passwordController.text;
+    username = username!;
+    password = password!;
 
     final Map<String, dynamic> result =
-        await authService.login(username, password);
+        await authService.login(username!, password!);
 
     setState(() {
       isLoading = true;
@@ -97,12 +95,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   bottomLeft: Radius.circular(100),
                   bottomRight: Radius.circular(100),
                 )),
-            child: Column(
+            child: const Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Align(
                     alignment: Alignment.center,
-                    child: const Text(
+                    child: Text(
                       "Ecommerce",
                       style:
                           TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
