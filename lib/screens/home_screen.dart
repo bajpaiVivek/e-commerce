@@ -68,7 +68,13 @@ class _HomeScreenState extends State<HomeScreen> {
             _currentIndex = index;
           });
         },
-        items: [
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.grey,
+        showUnselectedLabels: true,
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.orange[400],
+        elevation: 10,
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.category),
             label: 'Categories',

@@ -45,14 +45,15 @@ class _LoginScreenState extends State<LoginScreen> {
       print('Login successful');
       print('User Profile: ${result['username']}, ${result['roles']}');
 
-      if (context.mounted) {
-        return Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const HomeScreen(),
-          ),
-        );
+      if (!context.mounted) {
+        return;
       }
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const HomeScreen(),
+        ),
+      );
     }
   }
 

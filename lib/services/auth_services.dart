@@ -14,20 +14,20 @@ class AuthService {
     try {
       final response = await http.post(
         Uri.parse(apiUrl),
-        body: {
+        body: json.encode({
           'username': username,
           'password': password,
-        },
+        }),
       );
 
       final responseData = json.decode(response.body);
 
       if (response.statusCode == 200) {
-        final String token = responseData['token'];
+        final String token = responseData['access_token'];
 
         // Save the token locally
         final SharedPreferences prefs = await SharedPreferences.getInstance();
-        prefs.setString('token', token);
+        prefs.setString('access_token', token);
 
         // Fetch and return user profile data
         return await fetchProfile(token);
