@@ -25,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   bool isLoading = false;
 
-  Future<dynamic> login() async {
+  Future<void> login() async {
     setState(() {
       isLoading = true;
     });
