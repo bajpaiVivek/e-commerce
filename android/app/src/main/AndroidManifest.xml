@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.demo_ecoom">
    <application
-        android:label="clickcounter"
+        android:label="ecommerce"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -30,5 +30,8 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <!-- Required to fetch data from the internet. -->
+<uses-permission android:name="android.permission.INTERNET" />
+
     </application>
 </manifest>

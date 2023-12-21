@@ -100,12 +100,10 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 Align(
                     alignment: Alignment.center,
-                    child: Container(
-                      child: Image.asset(
-                        "assets/images/ecommerce.png",
-                        width: 120,
-                        fit: BoxFit.contain,
-                      ),
+                    child: Image.asset(
+                      "assets/images/ecommerce.png",
+                      width: 120,
+                      fit: BoxFit.contain,
                     ))
               ],
             ),
