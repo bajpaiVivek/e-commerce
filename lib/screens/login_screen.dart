@@ -81,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
         children: [
           Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height / 5,
+            height: MediaQuery.of(context).size.height / 3.5,
             decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
@@ -95,15 +95,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   bottomLeft: Radius.circular(100),
                   bottomRight: Radius.circular(100),
                 )),
-            child: const Column(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Align(
                     alignment: Alignment.center,
-                    child: Text(
-                      "Ecommerce",
-                      style:
-                          TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+                    child: Container(
+                      child: Image.asset(
+                        "assets/images/ecommerce.png",
+                        width: 120,
+                        fit: BoxFit.contain,
+                      ),
                     ))
               ],
             ),
